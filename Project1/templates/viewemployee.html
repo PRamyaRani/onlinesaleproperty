@@ -1,0 +1,27 @@
+{% include 'head.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee</title>
+</head>
+<body>
+<form action="{% url 'view_employee_details' %}" method="post">
+    {% csrf_token %}
+
+<br><br>
+<table align="center">
+    <tr>
+        <th><label>View Employee information  </label></th>
+        <th><input type="number" placeholder="Employee_number " name="Employee_Id" required></th>
+        <th> <label align="center"><button type="submit">get</button></label></th>
+    </tr>
+
+
+</table>
+
+
+</form>
+</body>
+</html>

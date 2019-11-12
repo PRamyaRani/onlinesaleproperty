@@ -1,0 +1,69 @@
+{% include 'head.html' %}
+
+<html>
+<head></head>
+
+<body>
+
+
+<table align="center" border="2">
+
+{% if employee_data %}
+
+    <br>
+    <br>
+    <h1 align="center">VIEW EMPLOYEE DETAILS</h1>
+
+    <tr>
+        <th>EMPLOYEE_NAME<</th>
+        <th>EMPLOYEE_ID</th>
+        <th>EMPLOYEE_EMAIL</th>
+        <th>EMPLOYEE_LOCATION</th>
+        <th>EMPLOYEE_DOJ<</th>
+        <th>EMPLOYEE_ROLE</th>
+        <th>EMPLOYEE_QUAL</th>
+        <th>EMPLOYEE_REMARKS</th>
+    </tr>
+
+
+     <tr>
+        <th>{{ employee_data.EMPLOYEE_NAME }}<</th>
+        <th>{{ employee_data.EMPLOYEE_ID }}</th>
+        <th>{{ employee_data.EMPLOYEE_EMAIL }}</th>
+        <th>{{ employee_data.EMPLOYEE_LOCATION }}</th>
+         <th>{{ employee_data.EMPLOYEE_DOJ }}</th>
+        <th>{{ employee_data.EMPLOYEE_ROLE }}:<</th>
+        <th>{{ employee_data.EMPLOYEE_QUAL }}</th>
+        <th>{{ employee_data.EMPLOYEE_REMARKS }}</th>
+    </tr>
+{% endif %}
+    {% if employee_data_edit %}
+          <br>
+    <br>
+    <h1 align="center">VIEW EMPLOYEE DETAILS</h1>
+        <form action="{% url 'update_employee' %}" method="post">
+            {% csrf_token %}
+
+        <tr><th>EMPLOYEE_NAME</th>   <th><input type="text" value = '{{ employee_data_edit.EMPLOYEE_NAME}}' name="employee_name"> </th></tr>
+        <tr><th>EMPLOYEE_ID</th>    <th><input type="number" value = "{{ employee_data_edit.EMPLOYEE_ID }}" name="employee_id"> </th></tr>
+        <tr><th>EMPLOYEE_EMAIL</th>  <th><input type="email" value='{{  employee_data_edit.EMPLOYEE_EMAIL}}' name="employee_email"> </th></tr>
+        <tr><th>EMPLOYEE_LOCATION</th>   <th><input type="text" value="{{ employee_data_edit.EMPLOYEE_LOCATION }}" name="employee_location"> </th></tr>
+        <tr><th>EMPLOYEE_DOJ</th>     <th><input type="number" value="{{ employee_data_edit.EMPLOYEE_DOJ }}" name="employee_doj"> </th></tr>
+        <tr><th>EMPLOYEE_ROLE</th> <th><input type="text" value="{{ employee_data_edit.EMPLOYEE_ROLE }}" name="employee_role"></th></tr>
+        <tr><th>EMPLOYEE_QUAL</th>     <th><input type="text" value="{{ employee_data_edit.EMPLOYEE_QUAL }}" name="employee_qual"> </th></tr>
+        <tr><th>EMPLOYEE_REMARKS</th>         <th><input type="text" value="{{ employee_data_edit.EMPLOYEE_REMARKS }}" name="employee_remarks"> </th></tr>
+
+        <tr>
+        <th colspan="2" align="center"><button type="submit">Update</button> </th>
+        </tr>
+        </form>
+
+
+    </tr>
+
+    {% endif %}
+
+</table>
+
+</body>
+</html>

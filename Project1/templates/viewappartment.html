@@ -1,0 +1,27 @@
+{% include 'head.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Appartment</title>
+</head>
+<body>
+<form action="{% url 'view_appart_details' %}" method="post">
+    {% csrf_token %}
+
+<br><br>
+<table align="center">
+    <tr>
+        <th><label>View Appartment information  </label></th>
+        <th><input type="number" placeholder="Appartment_number " name="APPARTMENT_NO" required></th>
+        <th> <label align="center"><button type="submit">get</button></label></th>
+    </tr>
+
+
+</table>
+
+
+</form>
+</body>
+</html>

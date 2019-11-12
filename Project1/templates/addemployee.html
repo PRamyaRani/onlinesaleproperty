@@ -1,0 +1,53 @@
+{% include 'head.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Employee</title>
+</head>
+<body>
+ <form action="{% url 'saveemployee' %}" method="post">
+    {% csrf_token %}
+ <table align="center">
+    <br>
+    <br>
+    <h1 align="center">New Employee Registration</h1>
+    <tr>
+        <th><label for="name">EmployeeName:</label><br></th>
+        <th><input type="text" name="en"><br></th>
+    </tr>
+    <tr>
+        <th><label for="name">EmployeeId:</label><br></th>
+        <th><input type="number" name="eid"><br></th>
+    </tr>
+<tr>
+        <th><label for="name">EmployeeEmail:</label><br></th>
+        <th><input type="text" name="eemail"><br></th>
+    </tr>
+    <tr>
+        <th><label for="name">EmployeeLocation:</label><br></th>
+        <th><input type="text" name="el"><br></th>
+    </tr>
+<tr>
+        <th><label for="name">EmployeeDOJ:</label><br></th>
+        <th><input type="number" name="edoj"><br></th>
+    </tr>
+    <tr>
+        <th><label for="name">EmployeeRole:</label><br></th>
+        <th><input type="text" name="erole"><br></th>
+    </tr>
+    <tr>
+        <th><label for="name">EmployeeQualification:</label><br></th>
+        <th><input type="text" name="equal"><br></th>
+    </tr>
+    <tr>
+        <th><label for="name">EmployeeRemarks:</label><br></th>
+        <th><input type="text" name="er"><br></th>
+    </tr>
+ </table>
+     <br>
+  <h5 align="center"><button type="submit">save</button><br></h5>
+
+ </form>
+</body>
+</html>

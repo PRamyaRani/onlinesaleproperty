@@ -1,0 +1,78 @@
+{% include 'head.html' %}
+
+<html>
+<head></head>
+
+<body>
+
+
+<table align="center" border="2">
+
+{% if plot_data %}
+
+    <br>
+    <br>
+    <h1 align="center">VIEW PLOT DETAILS</h1>
+
+    <tr>
+        <th>PLOT_NO<</th>
+        <th>ROAD_NO</th>
+        <th>SURVEY_NO</th>
+        <th>COST_PER_SQD</th>
+        <th>TOTAL_SQD<</th>
+        <th>Other_EXPENCES</th>
+        <th>BOUNDARIES</th>
+        <th>FACING</th>
+        <th>STATUS</th>
+        <th>TOTAL_COAST</th>
+    </tr>
+
+
+     <tr>
+        <th>{{ plot_data.PLOT_NO }}<</th>
+        <th>{{ plot_data.ROAD_NO }}</th>
+        <th>{{ plot_data.SURVEY_NO }}</th>
+        <th>{{ plot_data.COST_PER_SQD }}</th>
+         <th>{{ plot_data.TOTAL_SQD }}</th>
+        <th>{{ plot_data.Other_EXPENCES }}<</th>
+        <th>{{ plot_data.BOUNDARIES }}</th>
+        <th>{{ plot_data.FACING }}</th>
+         <th>{{ plot_data.STATUS }}</th>
+        <th>{{ plot_data.TOTAL_COAST }}</th>
+    </tr>
+{% endif %}
+    {% if plot_data_edit %}
+          <br>
+    <br>
+    <h1 align="center">VIEW PLOT DETAILS</h1>
+        <form action="{% url 'update_plot' %}" method="post">
+            {% csrf_token %}
+
+
+        <tr>
+            <th>PLOT_NO</th>
+            <th><input type="number" value = '{{ plot_data_edit.PLOT_NO }}' name="plot_no"> </th>
+        </tr>
+        <tr>
+            <th>ROAD_NO</th>
+            <th><input type="number" value = "{{ plot_data_edit.ROAD_NO }}" name="road_no"> </th>
+        </tr>
+        <tr><th>SURVEY_NO</th>  <th><input type="number" value='{{ plot_data_edit.SURVEY_NO }}' name="survey_no"> </th></tr>
+        <tr><th>COST_PER_SQD</th>   <th><input type="number" value="{{ plot_data_edit.COST_PER_SQD }}" name="cost_sqd"> </th></tr>
+        <tr><th>TOTAL_SQD</th>     <th><input type="number" value="{{ plot_data_edit.TOTAL_SQD }}" name="total_sqd"> </th></tr>
+        <tr><th>Other_EXPENCES</th> <th><input type="number" value="{{ plot_data_edit.Other_EXPENCES }}" name="other_expence"></th></tr>
+        <tr><th>BOUNDARIES</th>     <th><input type="number" value="{{ plot_data_edit.BOUNDARIES }}" name="boundaries"> </th></tr>
+        <tr><th>FACING</th>         <th><input type="text" value="{{ plot_data_edit.FACING }}" name="facing"> </th></tr>
+        <tr><th>STATUS</th>         <th><input type="text" value="{{ plot_data_edit.STATUS }}" name="status"> </th></tr>
+        <tr><th>TOTAL_COAST</th>    <th><input type="number" value="{{ plot_data_edit.TOTAL_COAST}}" name="total_coast"> </th></tr>
+        <tr>
+        <th colspan="2" align="center"><button type="submit">Update</button> </th>
+        </tr>
+        </form>
+
+
+    {% endif %}
+</table>
+</body>
+
+</html>

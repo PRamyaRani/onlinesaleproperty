@@ -1,0 +1,14 @@
+<body>
+<h1>ONLINE PROPERTY SALE</h1>
+<form action="{% url 'user_login' %}" method="post">
+    {% csrf_token %}
+<label for="name">UserName</label>
+<input type="text" name="un"><br><br>
+    <label for="name">PassWord</label>
+<input type="password" name="pw"><br><br>
+<button type="submit">Login</button>
+    </form>
+{% if msg %}
+<h1>{{ msg }}</h1>
+{% endif %}
+</body>
